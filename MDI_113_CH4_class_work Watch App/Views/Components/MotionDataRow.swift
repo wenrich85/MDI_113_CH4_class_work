@@ -23,19 +23,19 @@ struct MotionDataRow: View {
             // Visual Bar
             GeometryReader { geometry in
                 ZStack(alignment: .leading) {
-                    //background Bar
+                    ///background Bar
                     RoundedRectangle(cornerRadius: 4)
                         .fill(Color.gray.opacity(0.3))
-                    
+                    ///Value bar
                     RoundedRectangle(cornerRadius: 4)
                         .fill(color)
                         .frame(width: abs(value) * geometry.size.width/2)
                         .offset(x: value < 0 ? geometry.size.width/2 - abs(value) * geometry.size.width / 2 : geometry.size.width / 2)
                     
-                    
+                    ///middle bar
                     Rectangle()
                         .fill(Color.white.opacity(0.5))
-                        .frame(width: 1)
+                        .frame(width: 2)
                         .offset(x: geometry.size.width / 2)
                 }
             }
@@ -45,5 +45,5 @@ struct MotionDataRow: View {
 }
 
 #Preview {
-    MotionDataRow(label: "acc.x", value: 0.56, color: .cyan)
+    MotionDataRow(label: "acc.x", value: 0.20, color: .cyan)
 }
